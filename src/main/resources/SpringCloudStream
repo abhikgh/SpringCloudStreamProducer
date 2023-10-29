@@ -21,3 +21,40 @@ Spring Cloud Stream is a framework for building event-driven, highly scalable mi
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-stream-binder-kafka-streams</artifactId>
 </dependency>
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: order-created
+        input:
+          destination: order-updated
+
+
+@SpringBootApplication
+@EnableBinding({Source.class, Sink.class})
+public class SpringCloudStreamProducerApplication implements CommandLineRunner {
+
+    @Autowired
+    private MessageChannel output;
+
+    @Autowired
+    private MessageChannel input;
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringCloudStreamProducerApplication.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        Book book = new Book(1, "attwn");
+        output.send(MessageBuilder.withPayload(book).build());
+        System.out.println("Book sent successfully");
+    }
+
+    @StreamListener(value = "input")
+    public void consumeUpdatedMessage(@Payload Book book){
+        System.out.println("Updated book :: " + book.getBookName());
+    }
+}
