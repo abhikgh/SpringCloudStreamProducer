@@ -58,3 +58,10 @@ public class SpringCloudStreamProducerApplication implements CommandLineRunner {
         System.out.println("Updated book :: " + book.getBookName());
     }
 }
+
+Spring Cloud Stream versions
+=========================================
+Spring Cloud Stream	                        Spring Cloud	                                        Spring Boot
+4.0.x	                                    2022.0.x aka Kilburn	                                3.0.x
+3.2.x	                                    2021.0.x aka Jubilee	                2.6.x, 2.7.x (Starting with 2021.0.3 of Spring Cloud)
+3.1.x	                                    2020.0.x aka Ilford	2.4.x, 2.5.x        (Starting with 2020.0.3 of Spring Cloud)
