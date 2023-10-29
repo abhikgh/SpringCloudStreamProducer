@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: order-created
+        input:
+          destination: order-updated
+
+server:
+  port: 8081
