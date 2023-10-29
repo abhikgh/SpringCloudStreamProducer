@@ -2,7 +2,6 @@ package com.example.SpringCloudStreamProducer;
 
 import com.example.SpringCloudStreamProducer.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -36,7 +35,7 @@ public class SpringCloudStreamProducerApplication implements CommandLineRunner {
     }
 
     @StreamListener(value = "input")
-    public void consumeUpdatedMessage(@Payload Book book){
+    public void consumeUpdatedMessage(@Payload Book book) {
         System.out.println("Updated book :: " + book.getBookName());
     }
 }
