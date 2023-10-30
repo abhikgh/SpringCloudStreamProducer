@@ -2,7 +2,19 @@ Spring Cloud Stream
 ========================
 
 Spring Cloud Stream is a framework for building event-driven, highly scalable microservices which connect via shared messaging system.
+SCS framework provides an abstraction layer for event-driven systems to communicate over asynchronous messages
+SCS supports the reactive programming model.
+  It uses Reactor library which allows us to write asynchronous, non blocking, declarative code.
 
+SCS Advantages
+================================
+
+- Easy to change the underlying middlewares (without code modification)
+- Highly scalable
+- Fast message exchange
+- Asynchronous communication
+- Support of backpressure
+- Easy component separation
 
 <!--Spring Cloud Stream with Kafka binder -->
 <dependency>
